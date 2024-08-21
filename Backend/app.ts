@@ -1,6 +1,7 @@
-import express from "express";
-import cors from "cors";
-import cookieParser from "cookie-parser";
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import userRoutes from './routes/user.routes';
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.use(
 );
 
 app.use(cookieParser());
+
+app.use("/api/v1/users", userRoutes);
 
 app.use("/ping", (req, res) => {
   res.send("pong");

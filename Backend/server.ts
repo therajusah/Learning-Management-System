@@ -1,9 +1,11 @@
-import app from './app'
+import app from './app';
+import connectToDB from './config/dbConnection';
+
+const PORT = process.env.PORT || 5001;
 
 
-const PORT = process.env.PORT || 5000;
-
+connectToDB();
 
 app.listen(PORT, () => {
     console.log(`Server Started at ${PORT}`);
-})
+});
